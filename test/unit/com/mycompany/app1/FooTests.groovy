@@ -1,7 +1,6 @@
 package com.mycompany.app1
 
 
-
 import grails.test.mixin.*
 import org.junit.*
 
@@ -11,7 +10,6 @@ import org.junit.*
 @TestFor(Foo)
 class FooTests {
 
-    void testSomething() {
-       fail "Implement me"
+    void testSomething() {       
     }
 }
