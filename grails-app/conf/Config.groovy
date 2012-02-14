@@ -79,6 +79,7 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
+	debug 'org.grails.plugins.elasticsearch'
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
            'org.codehaus.groovy.grails.web.sitemesh', //  layouts
@@ -94,4 +95,21 @@ log4j = {
 
 elasticSearch {
 	bulkIndexOnStartup = false	
+	
+	environments {
+	  development {
+	    elasticSearch.client.mode = 'local'
+	  }
+	 
+	  test {
+	      elasticSearch {
+	          client.mode = 'local'
+	          index.store.type = 'memory' // store local node in memory and not on disk
+	      }
+	  }
+	 
+	  production {
+	    elasticSearch.client.mode = 'local'
+	  }
+	}
 }
